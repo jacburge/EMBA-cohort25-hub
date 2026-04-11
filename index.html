@@ -131,35 +131,35 @@ html,body{
 }
 .assign-list{
   display:flex;flex-direction:column;gap:0;
-  min-width:280px;
+  min-width:300px;
 }
 .assign-row{
-  display:flex;align-items:baseline;gap:1.5rem;
-  padding:0.85rem 0;
+  display:flex;align-items:baseline;gap:1.75rem;
+  padding:1rem 0;
   border-bottom:1px solid var(--border);
   opacity:0;transform:translateX(-20px);
   transition:opacity 0.5s var(--ease),transform 0.5s var(--ease);
 }
 .slide.active .assign-row{opacity:1;transform:translateX(0)}
 .assign-num{
-  font-size:clamp(1.8rem,3.5vw,2.8rem);
+  font-size:clamp(2.2rem,4vw,3.2rem);
   font-weight:800;letter-spacing:-0.02em;
-  min-width:4.5rem;text-align:right;
+  min-width:5rem;text-align:right;
   color:var(--red);
 }
 .assign-text{
-  font-size:clamp(0.9rem,1.6vw,1.2rem);
+  font-size:clamp(1rem,1.8vw,1.35rem);
   color:var(--text);font-weight:400;
 }
 .assign-text .detail{color:var(--text-secondary);font-size:0.85em}
 .combined-divider{
-  width:1px;height:clamp(200px,30vh,360px);
+  width:1px;height:clamp(220px,32vh,380px);
   background:var(--border);flex-shrink:0;
 }
 .donut-right{
-  display:flex;flex-direction:column;align-items:center;gap:1.5rem;
+  display:flex;flex-direction:column;align-items:center;gap:1.75rem;
 }
-.donut-wrap{position:relative;width:clamp(220px,28vw,340px);height:clamp(220px,28vw,340px)}
+.donut-wrap{position:relative;width:clamp(250px,32vw,380px);height:clamp(250px,32vw,380px)}
 .donut-wrap canvas{width:100%;height:100%}
 .donut-center{
   position:absolute;inset:0;
@@ -167,50 +167,50 @@ html,body{
   align-items:center;justify-content:center;
 }
 .donut-center-num{
-  font-size:clamp(2rem,3.5vw,3rem);
+  font-size:clamp(2.2rem,4vw,3.4rem);
   font-weight:800;letter-spacing:-0.03em;color:#fff;
 }
 .donut-center-label{
-  font-size:clamp(0.65rem,0.9vw,0.8rem);
+  font-size:clamp(0.7rem,1vw,0.9rem);
   text-transform:uppercase;letter-spacing:0.1em;
   color:var(--text-secondary);margin-top:0.25rem;
 }
-.donut-legend{display:flex;flex-direction:column;gap:0.8rem}
+.donut-legend{display:flex;flex-direction:column;gap:1rem}
 .legend-item{
-  display:flex;align-items:center;gap:0.75rem;
+  display:flex;align-items:center;gap:0.85rem;
   opacity:0;transition:opacity 0.5s var(--ease);
 }
 .slide.active .legend-item{opacity:1}
 .legend-swatch{
-  width:10px;height:10px;border-radius:2px;flex-shrink:0;
+  width:12px;height:12px;border-radius:2px;flex-shrink:0;
 }
 .legend-label{
-  font-size:clamp(0.8rem,1.1vw,0.95rem);color:var(--text);
+  font-size:clamp(0.9rem,1.3vw,1.1rem);color:var(--text);
 }
 .legend-count{color:var(--text-secondary);font-weight:300}
 
 /* Bar chart (busiest courses) */
 .bars-container{
   display:flex;flex-direction:column;gap:0;
-  max-width:950px;width:100%;
+  max-width:1050px;width:100%;
   margin:auto;
 }
 .bar-row{
-  display:grid;grid-template-columns:200px 1fr 55px;
+  display:grid;grid-template-columns:220px 1fr 55px;
   align-items:center;gap:1.25rem;
-  padding:0.55rem 0;
+  padding:0.65rem 0;
   border-bottom:1px solid var(--border);
   opacity:0;transform:translateX(-15px);
   transition:opacity 0.5s var(--ease),transform 0.5s var(--ease);
 }
 .slide.active .bar-row{opacity:1;transform:translateX(0)}
 .bar-label{
-  font-size:clamp(0.8rem,1.1vw,0.95rem);
+  font-size:clamp(0.9rem,1.2vw,1.05rem);
   color:var(--text-secondary);text-align:right;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 .bar-track{
-  height:24px;background:var(--surface);border-radius:3px;
+  height:28px;background:var(--surface);border-radius:3px;
   overflow:hidden;position:relative;
 }
 .bar-fill{
@@ -220,7 +220,7 @@ html,body{
 }
 .slide.active .bar-fill{transform:scaleX(1)}
 .bar-val{
-  font-size:clamp(0.85rem,1.1vw,1rem);
+  font-size:clamp(0.95rem,1.2vw,1.1rem);
   font-weight:700;color:#fff;
   font-variant-numeric:tabular-nums;
 }
@@ -233,27 +233,27 @@ html,body{
 }
 .who-panel{flex:1;min-width:0}
 .who-panel-title{
-  font-size:clamp(0.7rem,0.95vw,0.85rem);
+  font-size:clamp(0.8rem,1.05vw,0.95rem);
   text-transform:uppercase;letter-spacing:0.08em;
   color:var(--text-muted);font-weight:500;
-  margin-bottom:1rem;
+  margin-bottom:1.25rem;
 }
 .who-bar-row{
-  display:grid;grid-template-columns:200px 1fr 45px;
-  align-items:center;gap:0.75rem;
-  padding:0.45rem 0;
+  display:grid;grid-template-columns:200px 1fr 50px;
+  align-items:center;gap:0.85rem;
+  padding:0.55rem 0;
   border-bottom:1px solid var(--border);
   opacity:0;transform:translateX(-15px);
   transition:opacity 0.5s var(--ease),transform 0.5s var(--ease);
 }
 .slide.active .who-bar-row{opacity:1;transform:translateX(0)}
 .who-bar-label{
-  font-size:clamp(0.7rem,0.95vw,0.85rem);
+  font-size:clamp(0.8rem,1.05vw,0.95rem);
   color:var(--text-secondary);text-align:right;
   white-space:nowrap;
 }
 .who-bar-track{
-  height:22px;background:var(--surface);border-radius:3px;
+  height:26px;background:var(--surface);border-radius:3px;
   overflow:hidden;
 }
 .who-bar-fill{
@@ -263,7 +263,7 @@ html,body{
 }
 .slide.active .who-bar-fill{transform:scaleX(1)}
 .who-bar-pct{
-  font-size:clamp(0.8rem,1vw,0.9rem);
+  font-size:clamp(0.9rem,1.1vw,1rem);
   font-weight:700;color:#fff;
   font-variant-numeric:tabular-nums;
   text-align:right;
@@ -272,40 +272,40 @@ html,body{
 /* Professor lollipop */
 .lollipop-container{
   display:flex;flex-direction:column;gap:0;
-  max-width:950px;width:100%;
+  max-width:1050px;width:100%;
   margin:auto;
 }
 .lollipop-row{
-  display:grid;grid-template-columns:180px 1fr 55px;
+  display:grid;grid-template-columns:200px 1fr 55px;
   align-items:center;gap:1.25rem;
-  padding:0.4rem 0;
+  padding:0.5rem 0;
   border-bottom:1px solid var(--border);
   opacity:0;transform:translateX(-15px);
   transition:opacity 0.5s var(--ease),transform 0.5s var(--ease);
 }
 .slide.active .lollipop-row{opacity:1;transform:translateX(0)}
 .lollipop-label{
-  font-size:clamp(0.75rem,1vw,0.9rem);
+  font-size:clamp(0.85rem,1.1vw,1rem);
   color:var(--text-secondary);text-align:right;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 .lollipop-track{
-  height:3px;background:var(--border);position:relative;
+  height:4px;background:var(--border);position:relative;
 }
 .lollipop-line{
-  height:3px;position:absolute;left:0;top:0;
+  height:4px;position:absolute;left:0;top:0;
   transform:scaleX(0);transform-origin:left;
   transition:transform 1s var(--ease);
 }
 .slide.active .lollipop-line{transform:scaleX(1)}
 .lollipop-dot{
-  width:12px;height:12px;border-radius:50%;
+  width:14px;height:14px;border-radius:50%;
   position:absolute;top:50%;transform:translate(-50%,-50%) scale(0);
   transition:transform 0.6s var(--ease);
 }
 .slide.active .lollipop-dot{transform:translate(-50%,-50%) scale(1)}
 .lollipop-val{
-  font-size:clamp(0.8rem,1vw,0.9rem);
+  font-size:clamp(0.9rem,1.1vw,1rem);
   font-weight:700;color:#fff;
   font-variant-numeric:tabular-nums;
 }
@@ -359,15 +359,15 @@ html,body{
 }
 .slide.active .page-block-bar{transform:scaleY(1)}
 .page-block-name{
-  font-size:clamp(0.6rem,0.9vw,0.8rem);
+  font-size:clamp(0.7rem,1vw,0.9rem);
   text-transform:uppercase;letter-spacing:0.04em;
   color:var(--text-secondary);text-align:center;
   line-height:1.25;
 }
 .page-block-num{
-  font-size:clamp(1rem,1.6vw,1.35rem);
+  font-size:clamp(1.1rem,1.8vw,1.5rem);
   font-weight:700;color:#fff;
-  margin-top:0.35rem;
+  margin-top:0.4rem;
   font-variant-numeric:tabular-nums;
 }
 
@@ -574,7 +574,7 @@ html,body{
     <div class="combined-divider"></div>
     <div class="donut-right">
       <div class="donut-wrap">
-        <canvas id="donutCanvas" width="680" height="680"></canvas>
+        <canvas id="donutCanvas" width="760" height="760"></canvas>
         <div class="donut-center">
           <div class="donut-center-num">344</div>
           <div class="donut-center-label">Total</div>
@@ -922,7 +922,7 @@ html,body{
     const canvas = document.getElementById('donutCanvas');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    const cx = 340, cy = 340, R = 290, r = 185;
+    const cx = 380, cy = 380, R = 320, r = 205;
     const data = [
       { val: 173, color: '#E21833' },
       { val: 111, color: '#FFD200' },
@@ -937,7 +937,7 @@ html,body{
       const t = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - t, 3);
       const sweep = eased * Math.PI * 2;
-      ctx.clearRect(0, 0, 680, 680);
+      ctx.clearRect(0, 0, 760, 760);
       let angle = -Math.PI / 2;
       for (const d of data) {
         const arc = (d.val / totalVal) * sweep;
