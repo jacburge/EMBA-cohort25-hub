@@ -239,7 +239,7 @@ html,body{
   margin-bottom:1.25rem;
 }
 .who-bar-row{
-  display:grid;grid-template-columns:220px 1fr 50px;
+  display:grid;grid-template-columns:minmax(auto,max-content) 1fr 50px;
   align-items:center;gap:0.85rem;
   padding:0.55rem 0;
   border-bottom:1px solid var(--border);
@@ -250,6 +250,7 @@ html,body{
 .who-bar-label{
   font-size:clamp(0.8rem,1.05vw,0.95rem);
   color:var(--text-secondary);text-align:right;
+  white-space:nowrap;
   white-space:nowrap;
 }
 .who-bar-track{
@@ -435,7 +436,7 @@ html,body{
         <div class="who-bar-pct">25%</div>
       </div>
       <div class="who-bar-row" style="transition-delay:0.18s">
-        <div class="who-bar-label">Healthcare &amp; Life Sci</div>
+        <div class="who-bar-label">Healthcare &amp; Life Sciences</div>
         <div class="who-bar-track"><div class="who-bar-fill" style="width:80%;background:var(--red)"></div></div>
         <div class="who-bar-pct">20%</div>
       </div>
@@ -857,6 +858,16 @@ html,body{
 
 <script>
 (function() {
+  // Align who-bar labels: find widest label across both panels, set uniform column width
+  (function alignWhoBars() {
+    const labels = document.querySelectorAll('.who-bar-label');
+    if (!labels.length) return;
+    let maxW = 0;
+    labels.forEach(el => { el.style.width = 'auto'; maxW = Math.max(maxW, el.scrollWidth); });
+    const rows = document.querySelectorAll('.who-bar-row');
+    rows.forEach(r => { r.style.gridTemplateColumns = maxW + 'px 1fr 50px'; });
+  })();
+
   const slides = document.querySelectorAll('.slide');
   const total = slides.length;
   const progressFill = document.getElementById('progressFill');
