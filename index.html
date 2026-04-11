@@ -409,6 +409,135 @@ html,body{
 }
 
 [data-counter]{font-variant-numeric:tabular-nums}
+
+/* ── Mobile responsive ────────────────────────────────── */
+@media(max-width:768px){
+  html,body{overflow-y:auto;overflow-x:hidden}
+  .slide{
+    position:relative;inset:auto;
+    padding:clamp(1.5rem,4vw,2.5rem) clamp(1.25rem,5vw,2rem);
+    min-height:100dvh;
+    opacity:1;transform:none;pointer-events:auto;
+    display:flex;flex-direction:column;
+  }
+  .slide.exiting{opacity:1;transform:none}
+  .progress{display:none}
+  .controls{display:none}
+
+  .slide-header{
+    font-size:clamp(1.2rem,5.5vw,1.6rem);
+    margin-bottom:1.5rem;padding-bottom:0.5rem;
+  }
+  .slide-header .subtitle{
+    display:block;margin-left:0;margin-top:0.25rem;
+    font-size:clamp(0.65rem,2.8vw,0.8rem);
+  }
+
+  /* Title */
+  .title-slide{padding-bottom:clamp(3rem,8vh,6rem)}
+  .title-main{font-size:clamp(2.2rem,10vw,3.5rem)}
+  .title-sub{font-size:clamp(0.8rem,3.2vw,1rem)}
+  .title-meta{font-size:clamp(0.85rem,3.4vw,1.1rem)}
+  .title-accent{transform:scaleX(1)}
+
+  /* Hero grid */
+  .hero-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:1.25rem 1.5rem;
+  }
+  .hero-item{opacity:1;transform:none;padding-top:1.25rem}
+  .hero-num{font-size:clamp(2rem,8vw,3rem)}
+  .hero-label{font-size:clamp(0.65rem,2.5vw,0.8rem)}
+
+  /* Combined assignment + donut */
+  .combined-section{
+    flex-direction:column;gap:2rem;
+    align-items:stretch;
+  }
+  .combined-divider{
+    width:100%;height:1px;
+  }
+  .assign-list{min-width:0}
+  .assign-row{opacity:1;transform:none;gap:1rem;padding:0.75rem 0}
+  .assign-num{font-size:clamp(1.6rem,6vw,2rem);min-width:3.5rem}
+  .assign-text{font-size:clamp(0.85rem,3.2vw,1rem)}
+  .donut-right{align-items:center}
+  .donut-wrap{width:clamp(200px,55vw,280px);height:clamp(200px,55vw,280px)}
+  .donut-center-num{font-size:clamp(1.6rem,6vw,2rem)}
+  .donut-center-label{font-size:clamp(0.55rem,2.2vw,0.7rem)}
+  .legend-label{font-size:clamp(0.75rem,2.8vw,0.85rem)}
+
+  /* Who We Are */
+  .who-section{
+    flex-direction:column;gap:2rem;
+  }
+  .who-bar-row{
+    grid-template-columns:1fr 1.2fr 40px !important;
+    gap:0.5rem;padding:0.4rem 0;
+    opacity:1;transform:none;
+  }
+  .who-bar-label{
+    font-size:clamp(0.65rem,2.6vw,0.78rem);
+    text-align:left;white-space:normal;
+  }
+  .who-bar-track{height:20px}
+  .who-bar-fill{transform:scaleX(1)}
+  .who-bar-pct{font-size:clamp(0.75rem,2.8vw,0.85rem)}
+  .who-panel-title{font-size:clamp(0.7rem,2.8vw,0.85rem);margin-bottom:0.75rem}
+
+  /* Bar chart (busiest courses) */
+  .bars-container{max-width:100%}
+  .bar-row{
+    grid-template-columns:110px 1fr 40px;
+    gap:0.6rem;padding:0.4rem 0;
+    opacity:1;transform:none;
+  }
+  .bar-label{font-size:clamp(0.65rem,2.6vw,0.78rem)}
+  .bar-fill{transform:scaleX(1)}
+  .bar-track{height:22px}
+  .bar-val{font-size:clamp(0.8rem,2.8vw,0.9rem)}
+
+  /* Pages read */
+  .pages-grid{
+    grid-template-columns:repeat(4,1fr);
+    gap:0.6rem;
+  }
+  .page-block{padding:0.6rem 0.25rem;opacity:1;transform:none}
+  .page-block-bar{transform:scaleY(1)}
+  .page-block-num{font-size:clamp(0.85rem,3vw,1.1rem)}
+  .page-block-name{font-size:clamp(0.55rem,2.2vw,0.7rem)}
+
+  /* Professor lollipop */
+  .lollipop-container{max-width:100%}
+  .lollipop-row{
+    grid-template-columns:100px 1fr 42px;
+    gap:0.5rem;padding:0.35rem 0;
+    opacity:1;transform:none;
+  }
+  .lollipop-label{font-size:clamp(0.6rem,2.4vw,0.75rem)}
+  .lollipop-line{transform:scaleX(1)}
+  .lollipop-dot{transform:translate(-50%,-50%) scale(1)}
+  .lollipop-val{font-size:clamp(0.75rem,2.6vw,0.85rem)}
+
+  /* Word cloud */
+  .wc-img{
+    max-width:95vw;opacity:1;
+    filter:none;transform:none;margin-top:0.5rem;
+  }
+  .wc-footnote{opacity:1 !important}
+
+  /* Footer */
+  .footer-slide{padding-bottom:clamp(2rem,6vh,4rem)}
+  .congrats-text{opacity:1 !important;transform:translateY(0) !important}
+}
+
+@media(max-width:480px){
+  .hero-grid{grid-template-columns:repeat(2,1fr);gap:1rem}
+  .pages-grid{grid-template-columns:repeat(3,1fr)}
+  .bar-row{grid-template-columns:90px 1fr 36px;gap:0.4rem}
+  .lollipop-row{grid-template-columns:85px 1fr 38px;gap:0.4rem}
+  .who-bar-row{grid-template-columns:1fr 1fr 36px !important}
+}
 </style>
 </head>
 <body>
@@ -858,15 +987,19 @@ html,body{
 
 <script>
 (function() {
-  // Align who-bar labels: find widest label across both panels, set uniform column width
-  (function alignWhoBars() {
-    const labels = document.querySelectorAll('.who-bar-label');
-    if (!labels.length) return;
-    let maxW = 0;
-    labels.forEach(el => { el.style.width = 'auto'; maxW = Math.max(maxW, el.scrollWidth); });
-    const rows = document.querySelectorAll('.who-bar-row');
-    rows.forEach(r => { r.style.gridTemplateColumns = maxW + 'px 1fr 50px'; });
-  })();
+  const isMobile = window.matchMedia('(max-width:768px)').matches;
+
+  // Align who-bar labels on desktop only
+  if (!isMobile) {
+    (function alignWhoBars() {
+      const labels = document.querySelectorAll('.who-bar-label');
+      if (!labels.length) return;
+      let maxW = 0;
+      labels.forEach(el => { el.style.width = 'auto'; maxW = Math.max(maxW, el.scrollWidth); });
+      const rows = document.querySelectorAll('.who-bar-row');
+      rows.forEach(r => { r.style.gridTemplateColumns = maxW + 'px 1fr 50px'; });
+    })();
+  }
 
   const slides = document.querySelectorAll('.slide');
   const total = slides.length;
@@ -875,6 +1008,21 @@ html,body{
   let current = 0;
   let paused = false;
   let timer = null;
+
+  // Mobile: all slides visible and scrollable, trigger animations on scroll
+  if (isMobile) {
+    slides.forEach(s => s.classList.add('active'));
+    runCounters();
+    drawDonut();
+
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('active');
+      });
+    }, { threshold: 0.15 });
+    slides.forEach(s => io.observe(s));
+    return;
+  }
 
   function updateProgress() {
     const pct = (current + 1) / total;
