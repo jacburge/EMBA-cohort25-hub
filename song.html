@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Class Song — EMBA Cohort 25</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<style>
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/fontsource/fonts/geist:vf@latest/latin-wght-normal.woff2') format('woff2');
+}
+</style>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#E21833;
+  --gold:#FFD200;
+  --bg:#0A0A0A;
+  --surface:#131313;
+  --border:#222;
+  --text:#F0F0F2;
+  --text-secondary:#A1A1AA;
+  --text-muted:#71717A;
+  --ease:cubic-bezier(0.16,1,0.3,1);
+}
+html,body{
+  width:100%;min-height:100%;
+  background:var(--bg);color:var(--text);
+  font-family:'Geist','Inter',system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+
+.back{
+  position:fixed;top:0;left:0;right:0;
+  padding:clamp(0.75rem,2vw,1.25rem) clamp(1.25rem,4vw,2.5rem);
+  z-index:100;
+  background:linear-gradient(var(--bg) 60%, transparent);
+}
+.back a{
+  font-size:clamp(0.7rem,2vw,0.8rem);
+  color:var(--text-secondary);text-decoration:none;
+  text-transform:uppercase;letter-spacing:0.08em;
+  font-weight:500;
+  transition:color 0.2s;
+}
+.back a:hover{color:#fff}
+
+.page{
+  max-width:720px;
+  margin:0 auto;
+  padding:clamp(4rem,10vw,6rem) clamp(1.5rem,5vw,2.5rem) clamp(3rem,6vw,5rem);
+}
+
+/* Player section */
+.player-section{
+  text-align:center;
+  margin-bottom:clamp(2.5rem,5vh,4rem);
+  animation:fadeUp 0.8s var(--ease) both;
+}
+.album-art{
+  width:clamp(180px,45vw,260px);
+  height:clamp(180px,45vw,260px);
+  margin:0 auto clamp(1.5rem,3vw,2rem);
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:clamp(4rem,10vw,6rem);
+  position:relative;overflow:hidden;
+}
+.album-art::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 30%, rgba(226,24,51,0.08), transparent 60%);
+}
+.song-title{
+  font-size:clamp(1.4rem,4.5vw,2rem);
+  font-weight:800;letter-spacing:-0.03em;color:#fff;
+  margin-bottom:0.3rem;
+}
+.song-sub{
+  font-size:clamp(0.75rem,2.2vw,0.85rem);
+  color:var(--text-secondary);font-weight:400;
+  margin-bottom:clamp(1.25rem,3vw,1.75rem);
+}
+
+.track{
+  margin-bottom:1.25rem;
+}
+.track-label{
+  font-size:clamp(0.65rem,1.8vw,0.75rem);
+  text-transform:uppercase;letter-spacing:0.08em;
+  color:var(--text-muted);font-weight:500;
+  margin-bottom:0.5rem;
+}
+.track audio{
+  width:100%;height:44px;
+  border-radius:8px;
+  outline:none;
+}
+
+.credits{
+  margin-top:clamp(1rem,2vw,1.5rem);
+  font-size:clamp(0.7rem,2vw,0.8rem);
+  color:var(--text-muted);
+  line-height:1.7;
+}
+.credits strong{color:var(--text-secondary);font-weight:600}
+
+/* Lyrics */
+.lyrics-section{
+  animation:fadeUp 0.8s var(--ease) 0.15s both;
+}
+.lyrics-header{
+  font-size:clamp(0.75rem,2vw,0.85rem);
+  text-transform:uppercase;letter-spacing:0.1em;
+  color:var(--text-muted);font-weight:500;
+  padding-bottom:0.75rem;
+  border-bottom:1px solid var(--border);
+  margin-bottom:clamp(1.5rem,3vw,2rem);
+}
+
+.lyrics{
+  line-height:1.85;
+  font-size:clamp(0.9rem,2.8vw,1.05rem);
+  color:var(--text-secondary);
+  font-weight:350;
+}
+.lyrics .section-tag{
+  display:block;
+  font-size:clamp(0.65rem,1.8vw,0.72rem);
+  text-transform:uppercase;letter-spacing:0.1em;
+  color:var(--gold);font-weight:600;
+  margin-top:2.25em;margin-bottom:0.5em;
+}
+.lyrics .section-tag:first-child{margin-top:0}
+.lyrics .line{
+  display:block;
+  color:var(--text);
+  font-weight:400;
+}
+.lyrics .line-quote{
+  display:block;
+  color:var(--text);
+  font-style:italic;
+  font-weight:400;
+}
+
+.page-footer{
+  margin-top:clamp(3rem,6vh,5rem);
+  padding-top:1.5rem;
+  border-top:1px solid var(--border);
+  text-align:center;
+}
+.page-footer p{
+  font-size:clamp(0.65rem,1.8vw,0.75rem);
+  color:var(--text-muted);font-weight:300;
+  letter-spacing:0.02em;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+</style>
+</head>
+<body>
+
+<div class="back"><a href="index.html">&larr; Back to Hub</a></div>
+
+<div class="page">
+  <div class="player-section">
+    <div class="album-art">&#x1F393;</div>
+    <div class="song-title">Cohort 25 Theme Song</div>
+    <div class="song-sub">EMBA Cohort 25 &middot; Robert H. Smith School of Business</div>
+
+    <div class="track">
+      <div class="track-label">Original</div>
+      <audio controls preload="metadata">
+        <source src="assets/cohort25-theme-song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <div class="track">
+      <div class="track-label">LaMar&rsquo;s Cover</div>
+      <audio controls preload="metadata">
+        <source src="assets/cohort25-theme-song-lamar-cover.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <div class="credits">
+      <strong>Lyrics &amp; Production:</strong> Senthil<br>
+      <strong>Cover Performance:</strong> LaMar
+    </div>
+  </div>
+
+  <div class="lyrics-section">
+    <div class="lyrics-header">Lyrics</div>
+    <div class="lyrics">
+      <span class="section-tag">Intro</span>
+      <span class="line">39 in, 39 out, we all showed up on day one</span>
+      <span class="line">Nobody knew the chaos that was about to become</span>
+      <span class="line">Professors, classmates, late nights on Zoom</span>
+      <span class="line">By the time this thing is over, we'll have filled every room</span>
+
+      <span class="section-tag">Verse 1</span>
+      <span class="line-quote">Paulo said, "Find someone dumber to buy what you sold"</span>
+      <span class="line-quote">Dezso said the American dream is psychedelics and gold</span>
+      <span class="line">Judy's at the grocery store ready to, uh&mdash; anyway</span>
+      <span class="line-quote">Rich said everything in finance is hypothetical, okay</span>
+
+      <span class="line">Anand said football's his job and teaching is the side</span>
+      <span class="line-quote">"Don't tell the Dean" &mdash; meanwhile Dave's proving charts lied</span>
+      <span class="line-quote">Kimbrough said "I'm scared" while the class got loud</span>
+      <span class="line-quote">Kislaya said "Let's fire up Excel!" &mdash; the whole room was proud</span>
+
+      <span class="line-quote">Jim Hurd dropped it clean: "Attitude reflects leadership"</span>
+      <span class="line-quote">Andrew Sherman said tax avoidance is your patriotic relationship</span>
+      <span class="line-quote">"We're all Jim Hurd" &mdash; and "nothing like saying we're superfucked"</span>
+      <span class="line">To get a response when your deal is stuck</span>
+
+      <span class="section-tag">Chorus</span>
+      <span class="line">We know nothing for certain, but we showed up each week</span>
+      <span class="line">Learning in a classroom, on a rooftop, half asleep</span>
+      <span class="line">From Excel to accruals to GDP from the heart</span>
+      <span class="line">This cohort was chaotic &mdash; but that was the art</span>
+      <span class="line">39 in, 39 out &mdash; and we all played our part</span>
+
+      <span class="section-tag">Verse 2</span>
+      <span class="line-quote">Dasha said if you learn it drunk it sticks for life</span>
+      <span class="line">Jerquan negotiated to 1.5, shook hands like it's right</span>
+      <span class="line-quote">"I said 1.2, they said bullshit" &mdash; that's the MBA way</span>
+      <span class="line">Close the gap in the middle, walk away with the play</span>
+
+      <span class="line-quote">Wendy told Monica, "best presentation I've seen &mdash; not yours"</span>
+      <span class="line">Rajshree asked for Senthil's logic, he said none, of course</span>
+      <span class="line">Stacy said she believes in love, unlike these men</span>
+      <span class="line">Nick H was sobbing laughing &mdash; took a screenshot, then</span>
+
+      <span class="line">Brent knows the answer but can't say it right</span>
+      <span class="line">Tim's alarm clock will outlive him through the night</span>
+      <span class="line-quote">"Calm down, Tim, it's just a bake sale" &mdash; Brent said it clean</span>
+      <span class="line">And Ira's smiling at his screen like he knows what it means</span>
+
+      <span class="section-tag">Chorus</span>
+      <span class="line">We know nothing for certain, but we showed up each week</span>
+      <span class="line">Learning in a classroom, on a Zoom, half asleep</span>
+      <span class="line">From Excel to accruals to GDP from the heart</span>
+      <span class="line">This cohort was chaotic &mdash; but that was the art</span>
+      <span class="line">39 in, 39 out &mdash; and we all played our part</span>
+
+      <span class="section-tag">Bridge</span>
+      <span class="line-quote">Dezso said: "Is it enough? What can I say? Take the risk."</span>
+      <span class="line">That's the thesis, that's the motto, write it down on the list</span>
+      <span class="line">Don't be the first penguin jumping through the ice</span>
+      <span class="line">Be the tenth &mdash; that's Andrew's advice</span>
+
+      <span class="line-quote">"However comma" &mdash; Dave had his thing</span>
+      <span class="line-quote">Cooking without spice &mdash; Drew K said it ain't worth anything</span>
+      <span class="line-quote">"Let Kimbrough cook!" &mdash; Von E. let him breathe</span>
+      <span class="line">Tiffany said transformative leadership don't need a leave</span>
+
+      <span class="section-tag">Outro</span>
+      <span class="line-quote">It all works out as long as it works out &mdash; Rich said so</span>
+      <span class="line">Kislaya's done his job, it's downhill, let's go</span>
+      <span class="line-quote">"My job here is done" &mdash; but it never really was</span>
+      <span class="line">Because the cohort keeps on running just because</span>
+
+      <span class="line">39 in, 39 out &mdash; but something stayed behind</span>
+      <span class="line">The quotes, the chaos, the people, the grind</span>
+      <span class="line-quote">"We know nothing for certain" &mdash; that's the last thing said</span>
+      <span class="line">But we knew each other. That's enough instead.</span>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <p>EMBA Cohort 25 &middot; Robert H. Smith School of Business &middot; Class of 2026</p>
+  </div>
+</div>
+
+</body>
+</html>
