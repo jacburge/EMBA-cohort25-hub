@@ -426,15 +426,13 @@ html,body{
 
 /* ── Mobile responsive ────────────────────────────────── */
 @media(max-width:768px){
-  html{scroll-snap-type:y proximity;overflow-y:auto;overflow-x:hidden;height:auto}
-  body{overflow:visible;height:auto}
+  html,body{overflow-y:auto;overflow-x:hidden;height:auto}
   .slide{
     position:relative;inset:auto;
     padding:clamp(3.5rem,10vw,4.5rem) clamp(1.25rem,5vw,2rem) clamp(2rem,5vw,3rem);
     min-height:100dvh;
     opacity:1;transform:none;pointer-events:auto;
     display:flex;flex-direction:column;
-    scroll-snap-align:start;
   }
   .slide.exiting{opacity:1;transform:none}
   .progress{display:none}
