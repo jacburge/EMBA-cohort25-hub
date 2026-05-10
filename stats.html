@@ -420,6 +420,7 @@ html,body{
   font-weight:500;transition:color 0.2s;
 }
 .back-link a:hover{color:#fff}
+.mobile-back-bottom{display:none}
 
 [data-counter]{font-variant-numeric:tabular-nums}
 
@@ -437,6 +438,13 @@ html,body{
   .progress{display:none}
   .controls{display:none}
   .back-link{position:relative;background:none;padding:1rem clamp(1.25rem,5vw,2rem) 0}
+  .mobile-back-bottom{
+    display:inline-block;margin-top:2rem;
+    font-size:clamp(0.8rem,2.8vw,0.9rem);
+    color:var(--text-secondary);text-decoration:none;
+    text-transform:uppercase;letter-spacing:0.08em;
+    font-weight:500;
+  }
 
   .slide-header{
     font-size:clamp(1.2rem,5.5vw,1.6rem);
@@ -1000,6 +1008,7 @@ html,body{
   </div>
   <div style="opacity:0;transition:opacity 1s var(--ease) 1.4s" class="congrats-text">
     <div style="font-size:clamp(0.75rem,1vw,0.9rem);color:var(--text-secondary);font-weight:300;margin-top:2.5rem;letter-spacing:0.02em">Made with &#9825; by Jaclyn Mathai</div>
+    <a href="index.html" class="mobile-back-bottom">&larr; Back to Hub</a>
   </div>
   <div style="flex:1"></div>
 </div>

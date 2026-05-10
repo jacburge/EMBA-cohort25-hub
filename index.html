@@ -133,10 +133,10 @@ html,body{
   text-align:center;
   animation:fadeUp 0.8s var(--ease) 0.3s both;
 }
-/* Photo banner */
+/* Photo banner — panoramic pan */
 .photo-banner{
   width:100%;max-width:900px;
-  aspect-ratio:3/1;
+  height:clamp(200px,30vw,340px);
   border-radius:10px;
   overflow:hidden;
   position:relative;
@@ -145,11 +145,12 @@ html,body{
   border:1px solid var(--border);
 }
 .photo-banner img{
-  position:absolute;inset:0;
-  width:100%;height:100%;
-  object-fit:cover;
+  position:absolute;top:0;left:0;
+  height:100%;width:auto;
+  max-width:none;
   opacity:0;
-  transition:opacity 1.2s ease-in-out;
+  transition:opacity 1.4s ease-in-out;
+  will-change:transform,opacity;
 }
 .photo-banner img.active{opacity:1}
 
@@ -209,14 +210,48 @@ html,body{
 
 <script>
 (function() {
-  const imgs = document.querySelectorAll('#photoBanner img');
-  if (imgs.length < 2) return;
-  let current = 0;
-  setInterval(function() {
-    imgs[current].classList.remove('active');
+  var banner = document.getElementById('photoBanner');
+  var imgs = banner.querySelectorAll('img');
+  if (!imgs.length) return;
+
+  var current = 0;
+  var panDuration = 8000;
+  var fadeDuration = 1200;
+
+  function panImage(img) {
+    var bannerW = banner.offsetWidth;
+    var imgW = img.naturalWidth * (banner.offsetHeight / img.naturalHeight);
+    var travel = Math.max(0, imgW - bannerW);
+
+    img.style.transition = 'none';
+    img.style.transform = 'translateX(0)';
+
+    void img.offsetWidth;
+
+    img.style.transition = 'transform ' + panDuration + 'ms linear';
+    img.style.transform = 'translateX(-' + travel + 'px)';
+  }
+
+  function showNext() {
+    var prev = current;
     current = (current + 1) % imgs.length;
+
+    imgs[current].style.transition = 'none';
+    imgs[current].style.transform = 'translateX(0)';
+    void imgs[current].offsetWidth;
+
     imgs[current].classList.add('active');
-  }, 4000);
+    panImage(imgs[current]);
+
+    setTimeout(function() {
+      imgs[prev].classList.remove('active');
+    }, fadeDuration);
+  }
+
+  imgs[0].addEventListener('load', function() { panImage(imgs[0]); }, { once: true });
+  if (imgs[0].complete) panImage(imgs[0]);
+
+  setInterval(showNext, panDuration + 800);
 })();
 </script>
 </body>
