@@ -426,8 +426,8 @@ html,body{
 
 /* ── Mobile responsive ────────────────────────────────── */
 @media(max-width:768px){
-  html{scroll-snap-type:y mandatory;overflow-y:auto;overflow-x:hidden}
-  body{overflow-x:hidden}
+  html{scroll-snap-type:y mandatory;overflow-y:auto;overflow-x:hidden;height:auto}
+  body{overflow:visible;height:auto}
   .slide{
     position:relative;inset:auto;
     padding:clamp(1.5rem,4vw,2.5rem) clamp(1.25rem,5vw,2rem) clamp(2rem,5vw,3rem);
