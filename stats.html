@@ -1011,6 +1011,8 @@ html,body{
 
 <script>
 (function() {
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.scrollTo(0, 0);
   const isMobile = window.matchMedia('(max-width:768px)').matches;
 
   // Align who-bar labels on desktop only
