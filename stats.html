@@ -426,19 +426,21 @@ html,body{
 
 /* ── Mobile responsive ────────────────────────────────── */
 @media(max-width:768px){
-  html,body{overflow-y:auto;overflow-x:hidden}
+  html{scroll-snap-type:y mandatory;overflow-y:auto;overflow-x:hidden}
+  body{overflow-x:hidden}
   .slide{
     position:relative;inset:auto;
     padding:clamp(1.5rem,4vw,2.5rem) clamp(1.25rem,5vw,2rem) clamp(2rem,5vw,3rem);
-    min-height:auto;
+    min-height:100dvh;
     opacity:1;transform:none;pointer-events:auto;
     display:flex;flex-direction:column;
+    scroll-snap-align:start;
+    scroll-snap-stop:always;
   }
-  .slide + .slide{border-top:1px solid var(--border)}
   .slide.exiting{opacity:1;transform:none}
   .progress{display:none}
   .controls{display:none}
-  .back-link{position:relative;background:none;padding:1rem clamp(1.25rem,5vw,2rem) 0.5rem}
+  .back-link{position:fixed;top:0;left:0;right:0;padding:0.75rem clamp(1.25rem,5vw,2rem);z-index:100;background:linear-gradient(var(--bg) 60%,transparent)}
   .mobile-back-bottom{
     display:inline-block;margin-top:2rem;
     font-size:clamp(0.8rem,2.8vw,0.9rem);
@@ -536,7 +538,6 @@ html,body{
   .lollipop-val{font-size:clamp(0.75rem,2.6vw,0.85rem)}
 
   /* Word cloud */
-  .wc-slide{min-height:auto}
   .wc-img{
     max-width:95vw;margin-top:0.5rem;
   }
@@ -545,9 +546,8 @@ html,body{
   .footer-slide{
     padding-top:clamp(3rem,8vw,5rem);
     padding-bottom:clamp(2rem,6vh,4rem);
-    min-height:auto;justify-content:center;
+    justify-content:center;
   }
-  .footer-slide > div[style*="flex:1"]{display:none}
 }
 
 @media(max-width:480px){
