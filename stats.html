@@ -426,7 +426,7 @@ html,body{
 
 /* ── Mobile responsive ────────────────────────────────── */
 @media(max-width:768px){
-  html{scroll-snap-type:y mandatory;overflow-y:auto;overflow-x:hidden;height:auto}
+  html{scroll-snap-type:y proximity;overflow-y:auto;overflow-x:hidden;height:auto}
   body{overflow:visible;height:auto}
   .slide{
     position:relative;inset:auto;
@@ -435,7 +435,6 @@ html,body{
     opacity:1;transform:none;pointer-events:auto;
     display:flex;flex-direction:column;
     scroll-snap-align:start;
-    scroll-snap-stop:always;
   }
   .slide.exiting{opacity:1;transform:none}
   .progress{display:none}
