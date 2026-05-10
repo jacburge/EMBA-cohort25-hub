@@ -407,6 +407,19 @@ html,body{
   opacity:0.5;letter-spacing:0.05em;
   z-index:100;
 }
+.back-link{
+  position:fixed;top:0;left:0;right:0;
+  padding:clamp(0.75rem,2vw,1.25rem) clamp(1.25rem,4vw,2.5rem);
+  z-index:100;
+  background:linear-gradient(var(--bg) 60%, transparent);
+}
+.back-link a{
+  font-size:clamp(0.7rem,2vw,0.8rem);
+  color:var(--text-secondary);text-decoration:none;
+  text-transform:uppercase;letter-spacing:0.08em;
+  font-weight:500;transition:color 0.2s;
+}
+.back-link a:hover{color:#fff}
 
 [data-counter]{font-variant-numeric:tabular-nums}
 
@@ -423,6 +436,7 @@ html,body{
   .slide.exiting{opacity:1;transform:none}
   .progress{display:none}
   .controls{display:none}
+  .back-link{position:relative;background:none;padding:1rem clamp(1.25rem,5vw,2rem) 0}
 
   .slide-header{
     font-size:clamp(1.2rem,5.5vw,1.6rem);
@@ -527,7 +541,11 @@ html,body{
   .wc-footnote{opacity:1 !important}
 
   /* Footer */
-  .footer-slide{padding-bottom:clamp(2rem,6vh,4rem)}
+  .footer-slide{
+    padding-bottom:clamp(2rem,6vh,4rem);
+    min-height:auto;justify-content:center;
+  }
+  .footer-slide > div[style*="flex:1"]{display:none}
   .congrats-text{opacity:1 !important;transform:translateY(0) !important}
 }
 
@@ -542,6 +560,7 @@ html,body{
 </head>
 <body>
 
+<div class="back-link"><a href="index.html">&larr; Back to Hub</a></div>
 <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
 <div class="controls" id="controlsHint">SPACE pause / R restart</div>
 

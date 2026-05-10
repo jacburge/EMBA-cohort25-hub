@@ -96,10 +96,16 @@ html,body{
   box-shadow:0 8px 30px rgba(226,24,51,0.12);
 }
 .card-icon{
-  font-size:clamp(1.8rem,4vw,2.4rem);
+  width:clamp(32px,6vw,40px);height:clamp(32px,6vw,40px);
   margin-bottom:1rem;
-  line-height:1;
 }
+.card-icon svg{
+  width:100%;height:100%;
+  stroke:var(--red);stroke-width:1.5;
+  fill:none;stroke-linecap:round;stroke-linejoin:round;
+  transition:stroke 0.3s;
+}
+.card:hover .card-icon svg{stroke:var(--gold)}
 .card-title{
   font-size:clamp(1.1rem,2.8vw,1.35rem);
   font-weight:700;color:#fff;
@@ -127,6 +133,26 @@ html,body{
   text-align:center;
   animation:fadeUp 0.8s var(--ease) 0.3s both;
 }
+/* Photo banner */
+.photo-banner{
+  width:100%;max-width:900px;
+  aspect-ratio:3/1;
+  border-radius:10px;
+  overflow:hidden;
+  position:relative;
+  margin-bottom:clamp(2.5rem,5vh,4rem);
+  animation:fadeUp 0.8s var(--ease) 0.08s both;
+  border:1px solid var(--border);
+}
+.photo-banner img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity 1.2s ease-in-out;
+}
+.photo-banner img.active{opacity:1}
+
 .footer p{
   font-size:clamp(0.7rem,1.8vw,0.8rem);
   color:var(--text-muted);font-weight:300;
@@ -149,21 +175,27 @@ html,body{
     <div class="dates">Class of 2026 &mdash; January 2025 to May 2026</div>
   </div>
 
+  <div class="photo-banner" id="photoBanner">
+    <img src="assets/class-photo-1.jpg" alt="Cohort 25 class photo" class="active">
+    <img src="assets/class-photo-2.jpg" alt="Cohort 25 class photo">
+    <img src="assets/class-photo-3.jpg" alt="Cohort 25 class photo">
+  </div>
+
   <div class="cards">
     <a class="card" href="stats.html">
-      <div class="card-icon">&#x1F4CA;</div>
+      <div class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg></div>
       <div class="card-title">By the Numbers</div>
       <div class="card-desc">Our journey in stats, charts, and fun facts &mdash; 344 assignments, 5,300+ pages, and 19 courses distilled into one animated deck.</div>
     </a>
 
     <a class="card" href="song.html">
-      <div class="card-icon">&#x1F3B5;</div>
+      <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
       <div class="card-title">The Class Song</div>
-      <div class="card-desc">Listen to the Cohort 25 theme song, plus LaMar's cover &mdash; and read every lyric, quote, and inside joke.</div>
+      <div class="card-desc">Listen to the Cohort 25 theme song, plus LaMar Isaac's cover &mdash; and read every lyric, quote, and inside joke.</div>
     </a>
 
     <a class="card" href="#" onclick="return false;" style="pointer-events:auto;opacity:0.55;cursor:default">
-      <div class="card-icon">&#x1F4D6;</div>
+      <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8M8 11h6"/></svg></div>
       <div class="card-title">Digital Yearbook</div>
       <div class="card-desc">Faces, memories, and moments from our time together.</div>
       <div class="card-badge">Coming Soon</div>
@@ -175,5 +207,17 @@ html,body{
   </div>
 </div>
 
+<script>
+(function() {
+  const imgs = document.querySelectorAll('#photoBanner img');
+  if (imgs.length < 2) return;
+  let current = 0;
+  setInterval(function() {
+    imgs[current].classList.remove('active');
+    current = (current + 1) % imgs.length;
+    imgs[current].classList.add('active');
+  }, 4000);
+})();
+</script>
 </body>
 </html>

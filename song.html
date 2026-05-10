@@ -69,12 +69,17 @@ html,body{
   border:1px solid var(--border);
   border-radius:16px;
   display:flex;align-items:center;justify-content:center;
-  font-size:clamp(4rem,10vw,6rem);
   position:relative;overflow:hidden;
+}
+.album-art svg{
+  width:45%;height:45%;
+  stroke:var(--red);stroke-width:1.2;
+  fill:none;stroke-linecap:round;stroke-linejoin:round;
+  position:relative;z-index:1;
 }
 .album-art::after{
   content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at 30% 30%, rgba(226,24,51,0.08), transparent 60%);
+  background:radial-gradient(circle at 30% 30%, rgba(226,24,51,0.1), transparent 60%);
 }
 .song-title{
   font-size:clamp(1.4rem,4.5vw,2rem);
@@ -173,7 +178,7 @@ html,body{
 
 <div class="page">
   <div class="player-section">
-    <div class="album-art">&#x1F393;</div>
+    <div class="album-art"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
     <div class="song-title">Cohort 25 Theme Song</div>
     <div class="song-sub">EMBA Cohort 25 &middot; Robert H. Smith School of Business</div>
 
@@ -185,7 +190,7 @@ html,body{
       </audio>
     </div>
     <div class="track">
-      <div class="track-label">LaMar&rsquo;s Cover</div>
+      <div class="track-label">LaMar Isaac&rsquo;s Cover</div>
       <audio controls preload="metadata">
         <source src="assets/cohort25-theme-song-lamar-cover.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -193,8 +198,8 @@ html,body{
     </div>
 
     <div class="credits">
-      <strong>Lyrics &amp; Production:</strong> Senthil<br>
-      <strong>Cover Performance:</strong> LaMar
+      <strong>Lyrics &amp; Production:</strong> Senthil Govindarajan<br>
+      <strong>Cover Performance:</strong> LaMar Isaac
     </div>
   </div>
 
